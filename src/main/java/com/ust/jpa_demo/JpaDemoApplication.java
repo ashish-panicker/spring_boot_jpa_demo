@@ -16,7 +16,7 @@ public class JpaDemoApplication {
     }
 
     // CommandLineRunner
-    @Bean
+//    @Bean
     public CommandLineRunner commandLineRunner(EmployeeRepository employeeRepository) {
         return args -> {
             TempEmployee tempEmployee = new TempEmployee();
