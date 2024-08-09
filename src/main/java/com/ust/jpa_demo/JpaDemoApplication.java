@@ -22,7 +22,7 @@ public class JpaDemoApplication {
             TempEmployee tempEmployee = new TempEmployee();
             tempEmployee.setFullName("John Doe");
             tempEmployee.setEmail("john.doe");
-            tempEmployee.setDailyWage(1000);
+            tempEmployee.setDailyWage(3000);
             tempEmployee.setContractPeriod(6);
             employeeRepository.save(tempEmployee);
             System.out.println("Employee saved: " + tempEmployee);
@@ -33,7 +33,7 @@ public class JpaDemoApplication {
             regularEmployee.setBonus(500);
             employeeRepository.save(regularEmployee);
 
-            employeeRepository.findAll().forEach(System.out::println);
+            employeeRepository.findAllByDailyWageGreaterThan(2000.0f).forEach(System.out::println);
         };
     }
 
