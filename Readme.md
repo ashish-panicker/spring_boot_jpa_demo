@@ -213,3 +213,6 @@ public class Employee {
     // Getters and Setters
 }
 ```
+
+**Many to Many**
+
