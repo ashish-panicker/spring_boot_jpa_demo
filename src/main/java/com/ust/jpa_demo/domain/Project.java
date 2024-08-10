@@ -1,5 +1,6 @@
 package com.ust.jpa_demo.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -23,6 +24,7 @@ public class Project {
     private LocalDate startDate;
     private String title;
 
+    @JsonBackReference
     @ManyToMany(mappedBy = "projects", fetch = FetchType.LAZY)
     private Set<Employee> employees;
 }

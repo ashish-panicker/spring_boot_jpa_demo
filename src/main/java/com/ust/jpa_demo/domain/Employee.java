@@ -2,6 +2,7 @@ package com.ust.jpa_demo.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import java.util.List;
 import java.util.Set;
@@ -10,12 +11,12 @@ import java.util.Set;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
+@SuperBuilder
 @Entity
 @Table(name = "employees", uniqueConstraints = {@UniqueConstraint(columnNames = {"email"})})
 @Inheritance(strategy = InheritanceType.JOINED)
 //@DiscriminatorColumn(name = "emp_type", discriminatorType = DiscriminatorType.STRING)
-public abstract class Employee {
+public class Employee {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -36,4 +37,12 @@ public abstract class Employee {
             inverseJoinColumns = {@JoinColumn(name = "project_id")})
     private Set<Project> projects;
 
+    public Employee(String fullName, String email, AccessCard accessCard,
+                    List<Address> addresses, Set<Project> projects) {
+        this.fullName = fullName;
+        this.email = email;
+        this.accessCard = accessCard;
+        this.addresses = addresses;
+        this.projects = projects;
+    }
 }

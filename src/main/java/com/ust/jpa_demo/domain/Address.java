@@ -1,15 +1,14 @@
 package com.ust.jpa_demo.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @Entity
 @Table(name = "addresses")
 public class Address {
@@ -21,6 +20,7 @@ public class Address {
     private String state;
     private String country;
 
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "emp_id", referencedColumnName = "empId")
     private Employee employee;

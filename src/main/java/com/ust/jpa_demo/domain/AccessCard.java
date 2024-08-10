@@ -1,10 +1,8 @@
 package com.ust.jpa_demo.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDate;
 
@@ -12,6 +10,7 @@ import java.time.LocalDate;
 @Table(name = "access_cards")
 @Getter
 @Setter
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class AccessCard {
@@ -22,6 +21,7 @@ public class AccessCard {
     private LocalDate allocatedDate;
     private String accessCode;
 
+    @JsonBackReference
     @OneToOne(mappedBy = "accessCard")
     private Employee employee;
 }
