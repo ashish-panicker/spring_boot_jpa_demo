@@ -16,7 +16,7 @@ import java.util.Set;
 @Table(name = "employees", uniqueConstraints = {@UniqueConstraint(columnNames = {"email"})})
 @Inheritance(strategy = InheritanceType.JOINED)
 //@DiscriminatorColumn(name = "emp_type", discriminatorType = DiscriminatorType.STRING)
-public class Employee {
+public class Employee extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

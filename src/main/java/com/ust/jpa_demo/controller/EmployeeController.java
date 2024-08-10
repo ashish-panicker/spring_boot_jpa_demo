@@ -34,7 +34,7 @@ public class EmployeeController {
         EmployeeDto employeeDto = request.employeeDto();
         List<AddressDto> addressDtos = request.addressDtoList();
 
-        List<Address> addresses = addressDtos.stream()
+        List<Address> addresses = (List<Address>) addressDtos.stream()
                 .map(addressDto -> Address.builder()
                         .city(addressDto.city())
                         .state(addressDto.state())

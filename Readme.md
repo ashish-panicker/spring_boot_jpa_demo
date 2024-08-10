@@ -216,3 +216,40 @@ public class Employee {
 
 **Many to Many**
 
+In this type of association,
+
+- Multiple records in the source entity are associated with multiple records in the target entity.
+- Implemented using `@ManyToMany` annotation.
+- Typically, uses a join table to store the association.
+
+```java
+@Entity
+public class Student {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String name;
+    private String email;
+    private String phone;
+    @ManyToMany
+    private List<Course> courses;
+    // Getters and Setters
+}
+
+@Entity
+public class Course {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String name;
+    private String description;
+    @ManyToMany(mappedBy = "courses")
+    private List<Student> students;
+    // Getters and Setters
+}
+```
+
+## Class Diagram
+
+![Class Diagram](class_diagram.png)
+

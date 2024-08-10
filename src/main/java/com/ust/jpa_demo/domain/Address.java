@@ -3,15 +3,16 @@ package com.ust.jpa_demo.domain;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
+@SuperBuilder
 @Entity
 @Table(name = "addresses")
-public class Address {
+public class Address extends BaseEntity{
 
     @Id
     @GeneratedValue

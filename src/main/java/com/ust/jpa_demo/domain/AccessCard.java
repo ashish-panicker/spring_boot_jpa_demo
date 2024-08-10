@@ -3,6 +3,7 @@ package com.ust.jpa_demo.domain;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDate;
 
@@ -10,10 +11,10 @@ import java.time.LocalDate;
 @Table(name = "access_cards")
 @Getter
 @Setter
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class AccessCard {
+@SuperBuilder
+public class AccessCard extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
